@@ -3,10 +3,6 @@ infra-puppet
 
 Apache Infrastructure Team - Puppet
 
-# Docs
-
-[Workflow Docs](https://cwiki.apache.org/confluence/display/INFRA/Git+workflow+for+infrastructure-puppet+repo)
-
 
 ## Getting Started
 Install all of the dependencies
@@ -15,3 +11,6 @@ Install all of the dependencies
     bundle install
 
 You can use the bin/pull script to clone all of the 3rd party modules and sync the repo.
+
+bla bla bla
+ponies
