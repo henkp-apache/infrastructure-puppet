@@ -368,6 +368,15 @@ class build_slaves::jenkins (
     target => '/usr/local/asfpackages/java/jdk1.8.0_144',
   }
 
+  # INFRA-14819
+  #if ($::fqdn == 'jenkins-beam1.apache.org') or ($::fqdn == 'jenkins-beam2.apache.org') or ($::fqdn == 'jenkins-beam3.apache.org') or ($::fqdn == 'jenkins-beam4.apache.org') or ($::fqdn == 'jenkins-beam5.apache.org') or ($::fqdn == 'jenkins-beam6.apache.org') or ($::fqdn == 'jenkins-beam7.apache.org') or ($::fqdn == 'jenkins-beam8.apache.org'){
+  if $hostname =~ /^jenkins-beam/ {
+    exec { 'install_kubectl':
+      command => "/usr/bin/gcloud components install kubectl",
+      onlyif  => "";
+    }
+  }
+
   service { 'apache2':
     ensure => 'stopped',
   }
