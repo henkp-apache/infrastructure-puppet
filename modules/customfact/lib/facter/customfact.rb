@@ -92,3 +92,14 @@ Facter.add("masklength") do
     IPAddr.new(netmask).to_i.to_s(2).count("1")
   end
 end
+
+Facter.add("asfrole") do
+  setcode do
+    hn = Facter.value('hostname')
+    if hn =~ /^(tlp-|themis)/i
+      "tlp-server"
+    else
+      "generic"
+    end
+  end
+end
